@@ -105,4 +105,4 @@ async def help(ctx):
     embed.add_field(name='!controversial memes', value='Returns a meme from r/memes controversial section', inline=False)
     await client.send_message(author, embed=embed)
     
-client.run("NDE3ODA1NTQ3ODM3MDYzMTc5.DpiWzQ.a3wrCKSMU_JnzrbgK0U-p4u-iHg")
+client.run(os.getenv('TOKEN'))
