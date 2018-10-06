@@ -134,7 +134,7 @@ async def on_message(message):
         await client.send_message(message.channel, output.title)
         await client.send_message(message.channel, output.selftext)
 
-    if message.content.upper().replace(" ", "").startswith("!darkhumor"):
+    if message.content.upper().replace(" ", "").startswith("!DARKHUMOR"):
         memesSubredditDarkHumor = reddit.subreddit('darkhumorjokes').hot()  
          
         for x in range (0, randNumber):
