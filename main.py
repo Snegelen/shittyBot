@@ -97,9 +97,8 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
         await client.send_message(message.channel, output.url)
-    await client.process_commands(message)
 
-     if message.content.upper().replace(" ", "").startswith("!CHRISTIANMEMES"):
+    if message.content.upper().replace(" ", "").startswith("!CHRISTIANMEMES"):
         memesSubredditChristian = reddit.subreddit('dankchristianmemes').hot()  
          
         for x in range (0, randNumber):
@@ -107,6 +106,7 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
         await client.send_message(message.channel, output.url)
+    
     await client.process_commands(message)
 
 client.remove_command('help')
