@@ -25,6 +25,10 @@ async def on_ready():
     print("Bot is ready")
 
 @client.event
+async def wait_until_login():
+    await Client.change_presence(game=discord.Game(name='something goes here'))
+
+@client.event
 async def on_message(message):
     userID = message.author.id
     randNumber = random.randint(1,100)
@@ -153,13 +157,13 @@ async def on_message(message):
         if temp == 1:
             for x in range (0, randNumber):
                 output = next(i for i in memesSubredditAnimeMemes if not i.stickied)            
-            await client.send_message(message.channel, "<@%s> jokeID: %d " % (userID, randNumber) )
+            await client.send_message(message.channel, "<@%s> memeD: %d " % (userID, randNumber) )
             await client.send_message(message.channel, output.title)
             await client.send_message(message.channel, output.url)
         if temp == 0:
             for x in range (0, randNumber):
                 output = next(i for i in memesSubredditAnimeMemes2 if not i.stickied)            
-            await client.send_message(message.channel, "<@%s> jokeID: %d " % (userID, randNumber) )
+            await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
             await client.send_message(message.channel, output.title)
             await client.send_message(message.channel, output.url)
         
