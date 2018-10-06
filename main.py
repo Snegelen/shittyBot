@@ -99,6 +99,16 @@ async def on_message(message):
         await client.send_message(message.channel, output.url)
     await client.process_commands(message)
 
+     if message.content.upper().replace(" ", "").startswith("!CHRISTIANMEMES"):
+        memesSubredditChristian = reddit.subreddit('dankchristianmemes').hot()  
+         
+        for x in range (0, randNumber):
+            output = next(i for i in memesSubredditOffensive if not i.stickied)
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
+        await client.send_message(message.channel, output.url)
+    await client.process_commands(message)
+
 client.remove_command('help')
 @client.command(pass_context=True)
 async def help(ctx):
@@ -113,6 +123,8 @@ async def help(ctx):
     embed.add_field(name='!top memes', value='Returns a meme from r/memes top section', inline=False)
     embed.add_field(name='!rising memes', value='Returns a meme from r/memes rising section', inline=False)
     embed.add_field(name='!controversial memes', value='Returns a meme from r/memes controversial section', inline=False)
+    embed.add_field(name='!offensive memes', value='Returns a meme from r/offensivememes hot section', inline=False)
+    embed.add_field(name='!christian memes', value='Returns a meme from r/dankchristianmemes hot section', inline=False)
     await client.send_message(author, embed=embed)
     
 client.run(os.getenv('TOKEN'))
