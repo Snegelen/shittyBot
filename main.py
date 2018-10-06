@@ -88,6 +88,17 @@ async def on_message(message):
         await client.send_message(message.channel, output.url)
     await client.process_commands(message)
 
+    #Memes in the hot section on reddit
+    if message.content.upper().replace(" ", "").startswith("!OFFENSIVEMEMES"):
+        memesSubredditOffensive = reddit.subreddit('OffensiveMemes').hot()              
+        
+        for x in range (0, randNumber):
+            output = next(i for i in memesSubredditOffensive if not i.stickied)
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
+        await client.send_message(message.channel, output.url)
+    await client.process_commands(message)
+
 client.remove_command('help')
 @client.command(pass_context=True)
 async def help(ctx):
