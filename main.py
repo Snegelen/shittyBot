@@ -106,6 +106,24 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
         await client.send_message(message.channel, output.url)
+
+    if message.content.upper().replace(" ", "").startswith("!SPOOK"):
+        memesSubredditSpook = reddit.subreddit('spookymemes').hot()  
+         
+        for x in range (0, randNumber):
+            output = next(i for i in memesSubredditSpook if not i.stickied)
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
+        await client.send_message(message.channel, output.url)
+
+    if message.content.upper().replace(" ", "").startswith("!SPONGEBOB"):
+        memesSubredditSB = reddit.subreddit('BikiniBottomTwitter').hot()  
+         
+        for x in range (0, randNumber):
+            output = next(i for i in memesSubredditSB if not i.stickied)
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
+        await client.send_message(message.channel, output.url)
     
     await client.process_commands(message)
 
