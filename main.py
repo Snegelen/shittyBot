@@ -143,6 +143,25 @@ async def on_message(message):
         await client.send_message(message.channel, "<@%s> jokeID: %d " % (userID, randNumber) )
         await client.send_message(message.channel, output.title)
         await client.send_message(message.channel, output.selftext)
+
+    if message.content.upper().replace(" ", "").startswith("!ANIMEMEMES"):
+        memesSubredditAnimeMemes = reddit.subreddit('animememes').hot()
+        memesSubredditAnimeMemes2 = reddit.subreddit('MemesOfAnime').hot()
+        temp = random.randint(0,1)
+        userID = message.author.id
+
+        if temp == 1:
+            for x in range (0, randNumber):
+                output = next(i for i in memesSubredditAnimeMemes if not i.stickied)            
+            await client.send_message(message.channel, "<@%s> jokeID: %d " % (userID, randNumber) )
+            await client.send_message(message.channel, output.title)
+            await client.send_message(message.channel, output.url)
+        if temp == 0:
+            for x in range (0, randNumber):
+                output = next(i for i in memesSubredditAnimeMemes2 if not i.stickied)            
+            await client.send_message(message.channel, "<@%s> jokeID: %d " % (userID, randNumber) )
+            await client.send_message(message.channel, output.title)
+            await client.send_message(message.channel, output.url)
         
     await client.process_commands(message)
 
@@ -166,6 +185,7 @@ async def help(ctx):
     embed.add_field(name='!spongebob', value='Returns a meme from r/BikiniBottomTwitter hot section', inline=False)
     embed.add_field(name='!dad joke', value='Returns a meme from r/dadjokes hot section', inline=False)
     embed.add_field(name='!darkhumor', value='Returns a meme from r/darkhumorjokes hot section', inline=False)
+    embed.add_field(name='!anime memes', value='Returns a meme from r/animememes hot section', inline=False)
     
     await client.send_message(author, embed=embed)
     
