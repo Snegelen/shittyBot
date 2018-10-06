@@ -26,7 +26,7 @@ async def on_ready():
 
 @client.event
 async def wait_until_login():
-    await Client.change_presence(game=discord.Game(name='something goes here'))
+    await client.change_presence(game=discord.Game(name='something goes here'))
 
 @client.event
 async def on_message(message):
