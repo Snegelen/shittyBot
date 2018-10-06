@@ -103,7 +103,7 @@ async def on_message(message):
         memesSubredditChristian = reddit.subreddit('dankchristianmemes').hot()  
          
         for x in range (0, randNumber):
-            output = next(i for i in memesSubredditOffensive if not i.stickied)
+            output = next(i for i in memesSubredditChristian if not i.stickied)
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
         await client.send_message(message.channel, output.url)
