@@ -123,6 +123,16 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, randNumber) )
         await client.send_message(message.channel, output.url)
+
+    if message.content.upper().replace(" ", "").startswith("!DADJOKE"):
+        memesSubredditDadJoke = reddit.subreddit('dadjokes').hot()  
+         
+        for x in range (0, randNumber):
+            output = next(i for i in memesSubredditDadJoke if not i.stickied)
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> jokeID: %d " % (userID, randNumber) )
+        await client.send_message(message.channel, output.title)
+        await client.send_message(message.channel, output.selftext)
     
     await client.process_commands(message)
 
