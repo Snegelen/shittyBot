@@ -162,6 +162,11 @@ async def help(ctx):
     embed.add_field(name='!controversial memes', value='Returns a meme from r/memes controversial section', inline=False)
     embed.add_field(name='!offensive memes', value='Returns a meme from r/offensivememes hot section', inline=False)
     embed.add_field(name='!christian memes', value='Returns a meme from r/dankchristianmemes hot section', inline=False)
+    embed.add_field(name='!spook', value='Returns a meme from r/spookymemes hot section', inline=False)
+    embed.add_field(name='!spongebob', value='Returns a meme from r/BikiniBottomTwitter hot section', inline=False)
+    embed.add_field(name='!dad joke', value='Returns a meme from r/dadjokes hot section', inline=False)
+    embed.add_field(name='!darkhumor', value='Returns a meme from r/darkhumorjokes hot section', inline=False)
+    
     await client.send_message(author, embed=embed)
     
 client.run(os.getenv('TOKEN'))
