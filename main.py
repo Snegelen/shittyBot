@@ -22,7 +22,7 @@ print('Logged in')
 
 @client.event
 async def on_ready():
-    await client.change_presence(game=discord.Game(name='Boku no Pico episode 5')
+    await client.change_presence(game=discord.Game(name='Boku no Pico episode 5'))
     print("Bot is ready")
 @client.event
 async def on_message(message):
