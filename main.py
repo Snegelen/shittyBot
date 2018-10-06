@@ -59,9 +59,8 @@ async def on_message(message):
     if message.content.upper().replace(" ", "").startswith("!RISINGMEMES"):
         memesSubredditRising = reddit.subreddit('memes').rising()
         rN = random.randint(1,29)
-        print(rN)
 
-        for x in range (0, 29):
+        for x in range (0, rN):
             output = next(i for i in memesSubredditRising if not i.stickied)
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> memeID: %d " % (userID, rN) )
